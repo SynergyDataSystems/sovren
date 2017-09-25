@@ -24,7 +24,7 @@ describe Sovren::Employment do
       Then { result.first.country == "US"}
       Then { result.first.description.length == 694 }
       Then { result.first.start_date == Date.new(2004,10,01) }
-      Then { result.first.end_date == nil }
+      Then { result.first.end_date == Date.new(2013, 04, 29) }
       Then { result.first.current_employer == true }
       Then { result.first.current_employer? == true }
     end

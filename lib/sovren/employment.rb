@@ -17,7 +17,7 @@ module Sovren
         e.description = position.css('Description').text
         e.start_date = Date.parse(position.css('StartDate').text) rescue nil
         e.current_employer = position['currentEmployer'] == "true"
-        e.end_date = e.current_employer ? nil : (Date.parse(position.css('EndDate').text) rescue nil)
+        e.end_date = Date.parse(position.css('EndDate').text) rescue nil
         e
       end
       result
