@@ -48,6 +48,7 @@ module Sovren
           "EmbedConvertedTextInHrXml" => true,
           "HardTimeOutMultiplier" => hard_time_out_multiplier,
           "TimeOutInMs" => timeout,
+          'TaxonomyFiles' => '',
           "SkillsFiles" => Base64.encode64(skills_files)})
       end
 
