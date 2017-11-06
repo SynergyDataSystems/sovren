@@ -39,7 +39,7 @@ module Sovren
       Resume.parse(result.body[:parse_response][:parse_result])
     end
 
-    def parse_with_skills(file, skills_files)
+    def parse_with_skills(file, taxonomy_file, skills_files)
       result = connection.call(:parse) do |c|
         c.message({
           "DocumentAsByteArray" => Base64.encode64(file),
@@ -48,7 +48,7 @@ module Sovren
           "EmbedConvertedTextInHrXml" => true,
           "HardTimeOutMultiplier" => hard_time_out_multiplier,
           "TimeOutInMs" => timeout,
-          "TaxonomyFiles" => '',
+          "TaxonomyFiles" => Base64.encode64(taxonomy_file),
           "SkillsFiles" => Base64.encode64(skills_files)})
       end
 
