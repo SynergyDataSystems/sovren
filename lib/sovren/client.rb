@@ -64,5 +64,17 @@ module Sovren
 
       result.body[:do_conversion_simplified_response][:do_conversion_simplified_result].to_s
     end
+
+    def add_skills_with_taxonomy(file_name, taxonomy_file_data, skills_file_data)
+      result = connection.call(:set_data) do |c|
+        c.message({
+          'Type' => 'Skills',
+          'Name' => file_name,
+          'Culture' => 'en',
+          'Content' => [Base64.encode64(taxonomy_file_data), Base64.encode64(skills_file_data)]})
+      end
+
+      result.body[:set_data_response][:set_data_result].to_s
+    end
   end
 end
